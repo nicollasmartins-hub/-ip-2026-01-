@@ -1,0 +1,23 @@
+package main
+
+import "fmt"
+
+func main() {
+    var qtd int
+    var nota, soma, media float64
+
+    fmt.Print("Digite a quantidade de alunos: ")
+    fmt.Scan(&qtd)
+
+    soma = 0
+
+    for i := 1; i <= qtd; i++ {
+        fmt.Printf("Digite a nota do aluno %d: ", i)
+        fmt.Scan(&nota)
+        soma += nota
+    }
+
+    media = soma / float64(qtd)
+
+    fmt.Println("Média da turma:", media)
+}
