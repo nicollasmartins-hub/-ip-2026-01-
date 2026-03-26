@@ -1,0 +1,19 @@
+package main
+
+import "fmt"
+
+func main() {
+    var numero float64
+    fmt.Print("Digite um número: ")
+    fmt.Scan(&numero)
+
+    if numero > 0 {
+        fmt.Printf("O número %g é positivo.\n", numero)
+    } 
+    if numero < 0 {
+        fmt.Printf("O número %g é negativo.\n", numero)
+    }
+    if numero == 0 {
+        fmt.Printf("O número %g é nulo.\n", numero)
+    }
+}
