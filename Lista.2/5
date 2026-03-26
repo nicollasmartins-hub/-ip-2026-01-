@@ -1,0 +1,16 @@
+package main
+
+import"fmt"
+
+func main() {
+	var num int
+
+	fmt.Print("Digite um número: ")
+	fmt.Scan(&num)
+
+	if num%5 == 0 {
+		fmt.Printf("O numero %d é divisivel por 5 \n", num)
+	} else {
+		fmt.Printf("O numero %d não é divisivel por 5 \n", num)
+	}
+}
