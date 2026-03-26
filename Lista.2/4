@@ -1,0 +1,19 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	var num float64
+
+	fmt.Print("Digite um número: ")
+	fmt.Scan(&num)
+
+	if num >= 0 {
+		fmt.Printf("Raiz quadrada: %g\n", math.Sqrt(num))
+	} else {
+		fmt.Printf("Quadrado: %g\n", math.Pow(num, 2))
+	}
+}
