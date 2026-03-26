@@ -1,0 +1,23 @@
+package main
+
+import "fmt"
+
+func main() {
+    var n1, n2 int
+
+    fmt.Print("Digite o primeiro número: ")
+    fmt.Scan(&n1)
+    fmt.Print("Digite o segundo número: ")
+    fmt.Scan(&n2)
+
+    soma := n1 + n2
+    var resultado int
+
+    if soma > 20 {
+        resultado = soma + 8
+    } else {
+        resultado = soma - 5
+    }
+
+    fmt.Printf("O resultado final é: %d\n", resultado)
+}
