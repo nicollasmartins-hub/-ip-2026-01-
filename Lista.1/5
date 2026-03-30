@@ -1,0 +1,43 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var conta int
+	var consumo float64
+	var tipo string
+
+	// Lê a conta, o consumo e o tipo (R, C ou I)
+	_, err := fmt.Scan(&conta, &consumo, &tipo)
+	if err != nil {
+		return
+	}
+
+	var valorTotal float64
+
+	switch tipo {
+	case "R":
+		// Residencial: R$ 5,00 taxa + R$ 0,05 por m3
+		valorTotal = 5.00 + (consumo * 0.05)
+
+	case "C":
+		// Comercial: R$ 500,00 fixos + R$ 0,25 por m3 excedente a 80
+		valorTotal = 500.00
+		if consumo > 80 {
+			valorTotal += (consumo - 80) * 0.25
+		}
+
+	case "I":
+		// Industrial: R$ 800,00 fixos + R$ 0,04 por m3 excedente a 100
+		valorTotal = 800.00
+		if consumo > 100 {
+			valorTotal += (consumo - 100) * 0.04
+		}
+	}
+
+	// Saída conforme o formato solicitado
+	fmt.Printf("CONTA = %d\n", conta)
+	fmt.Printf("VALOR DA CONTA = %.2f\n", valorTotal)
+}
