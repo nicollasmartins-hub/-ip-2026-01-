@@ -1,0 +1,42 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var nota float64
+
+	// PASSO 1: Instrução ao usuário
+	fmt.Print("Digite a nota do aluno (0.0 a 10.0): ")
+	
+	// PASSO 2: Leitura do valor
+	_, err := fmt.Scan(&nota)
+
+	// PASSO 3: Validação de erro de digitação ou intervalo
+	if err != nil {
+		fmt.Println("Erro: Por favor, digite um número válido usando ponto (ex: 7.5).")
+		return // Encerra o programa se houver erro
+	}
+
+	if nota < 0 || nota > 10 {
+		fmt.Println("NOTA INVALIDA! Digite um valor entre 0 e 10.")
+		return // Encerra o programa se a nota estiver fora do limite
+	}
+
+	var conceito string
+
+	// PASSO 4: Lógica de decisão (Conceitos)
+	if nota >= 9.0 {
+		conceito = "A"
+	} else if nota >= 7.5 {
+		conceito = "B"
+	} else if nota >= 6.0 {
+		conceito = "C"
+	} else {
+		conceito = "D"
+	}
+
+	// PASSO 5: Saída formatada
+	fmt.Printf("NOTA = %.1f CONCEITO = %s\n", nota, conceito)
+}
