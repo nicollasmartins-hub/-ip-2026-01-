@@ -1,0 +1,27 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var n int
+	// Lê a quantidade de temperaturas a serem convertidas
+	_, err := fmt.Scan(&n)
+	if err != nil {
+		return
+	}
+
+	// Processa cada uma das n temperaturas
+	for i := 0; i < n; i++ {
+		var fahrenheit float64
+		fmt.Scan(&fahrenheit)
+
+		// Aplica a fórmula de conversão
+		// Importante: usar 5.0 e 9.0 para garantir cálculo com decimais
+		celsius := (5.0 * (fahrenheit - 32.0)) / 9.0
+
+		// Exibe a saída formatada com duas casas decimais
+		fmt.Printf("%.2f FAHRENHEIT EQUIVALE A %.2f CELSIUS\n", fahrenheit, celsius)
+	}
+}
