@@ -1,0 +1,26 @@
+package main
+
+import "fmt"
+
+func calcularRenda(publico float64, pPopular, pGeral, pArquibancada, pCadeiras float64) float64 {
+	return (publico * (pPopular / 100) * 1.00) +
+		(publico * (pGeral / 100) * 5.00) +
+		(publico * (pArquibancada / 100) * 10.00) +
+		(publico * (pCadeiras / 100) * 20.00)
+}
+
+func main() {
+	var numCasos int
+	fmt.Scan(&numCasos)
+
+	for i := 1; i <= numCasos; i++ {
+		var publicoTotal float64
+		var pPopular, pGeral, pArquibancada, pCadeiras float64
+
+		fmt.Scan(&publicoTotal, &pPopular, &pGeral, &pArquibancada, &pCadeiras)
+
+		renda := calcularRenda(publicoTotal, pPopular, pGeral, pArquibancada, pCadeiras)
+
+		fmt.Printf("A RENDA DO JOGO N. %d E = %.2f\n", i, renda)
+	}
+}
