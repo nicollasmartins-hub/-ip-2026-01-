@@ -1,0 +1,26 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var a, b, c float64
+
+	// Avisos para o usuário saber o que digitar
+	fmt.Print("Digite o valor do coeficiente A: ")
+	fmt.Scan(&a)
+
+	fmt.Print("Digite o valor do coeficiente B: ")
+	fmt.Scan(&b)
+
+	fmt.Print("Digite o valor do coeficiente C: ")
+	fmt.Scan(&c)
+
+	// Cálculo do discriminante (Delta)
+	// Fórmula: Δ = B² - 4AC
+	delta := (b * b) - (4 * a * c)
+
+	// Saída formatada com duas casas decimais
+	fmt.Printf("O VALOR DE DELTA E = %.2f\n", delta)
+}
