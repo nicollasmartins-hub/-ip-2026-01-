@@ -1,0 +1,27 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var horas int
+
+	// Aviso para o usuário
+	fmt.Print("Digite a quantidade de horas de uso: ")
+	fmt.Scan(&horas)
+
+	// 1. Calcula quantos blocos de 3 horas existem (divisão inteira)
+	blocosDe3 := horas / 3
+	
+	// 2. Calcula quantas horas sobraram (resto da divisão)
+	horasRestantes := horas % 3
+
+	// 3. Calcula o valor total:
+	// Cada bloco de 3 horas custa 10.00
+	// Cada hora restante custa 5.00
+	valorTotal := float64(blocosDe3)*10.00 + float64(horasRestantes)*5.00
+
+	// Saída formatada com duas casas decimais
+	fmt.Printf("O VALOR A PAGAR E = %.2f\n", valorTotal)
+}
