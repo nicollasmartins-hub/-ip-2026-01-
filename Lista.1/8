@@ -1,0 +1,30 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var raio, altura float64
+	const PI = 3.14159
+	const CUSTO_ALUMINIO = 100.0
+
+	// Lê o raio e a altura (em metros)
+	fmt.Scan(&raio)
+	fmt.Scan(&altura)
+
+	// 1. Calcula a área da base (círculo): Ac = PI * r^2
+	areaBase := PI * (raio * raio)
+
+	// 2. Calcula a área lateral: Al = 2 * PI * r * a
+	areaLateral := 2 * PI * raio * altura
+
+	// 3. Calcula a área total: At = 2 * Ac + Al
+	areaTotal := (2 * areaBase) + areaLateral
+
+	// 4. Calcula o custo total
+	custoTotal := areaTotal * CUSTO_ALUMINIO
+
+	// Saída formatada com duas casas decimais
+	fmt.Printf("O VALOR DO CUSTO E = %.2f\n", custoTotal)
+}
