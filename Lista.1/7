@@ -1,0 +1,24 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var fahrenheit, polegadas float64
+
+	// Lê os dois valores (Fahrenheit e Polegadas)
+	// O Scan lê mesmo que estejam em linhas diferentes
+	fmt.Scan(&fahrenheit)
+	fmt.Scan(&polegadas)
+
+	// 1. Converte Fahrenheit para Celsius
+	celsius := (5.0 * fahrenheit - 160.0) / 9.0
+
+	// 2. Converte Polegadas para Milímetros (1 pol = 25.4 mm)
+	milimetros := polegadas * 25.4
+
+	// Saída formatada com duas casas decimais conforme solicitado
+	fmt.Printf("O VALOR EM CELSIUS = %.2f\n", celsius)
+	fmt.Printf("A QUANTIDADE DE CHUVA E = %.2f\n", milimetros)
+}
