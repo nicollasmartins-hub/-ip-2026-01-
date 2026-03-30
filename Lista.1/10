@@ -1,0 +1,28 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var a, b, c, d float64
+
+	// Avisos para preencher a matriz [a b] [c d]
+	fmt.Print("Digite o elemento a (1ª linha, 1ª coluna): ")
+	fmt.Scan(&a)
+
+	fmt.Print("Digite o elemento b (1ª linha, 2ª coluna): ")
+	fmt.Scan(&b)
+
+	fmt.Print("Digite o elemento c (2ª linha, 1ª coluna): ")
+	fmt.Scan(&c)
+
+	fmt.Print("Digite o elemento d (2ª linha, 2ª coluna): ")
+	fmt.Scan(&d)
+
+	// Cálculo do determinante para matriz 2x2: (a*d) - (b*c)
+	determinante := (a * d) - (b * c)
+
+	// Saída formatada com duas casas decimais
+	fmt.Printf("O VALOR DO DETERMINANTE E = %.2f\n", determinante)
+}
