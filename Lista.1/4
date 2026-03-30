@@ -1,0 +1,29 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var salarioMinimo, kwGasto float64
+
+	// Lê o salário mínimo e a quantidade de kW gasta
+	_, err := fmt.Scan(&salarioMinimo, &kwGasto)
+	if err != nil {
+		return
+	}
+
+	// 1. Calcula o valor de cada kW (70% do salário dividido por 100)
+	valorPorKw := (salarioMinimo * 0.70) / 100
+
+	// 2. Calcula o custo total do consumo da residência
+	custoConsumo := kwGasto * valorPorKw
+
+	// 3. Calcula o custo com 10% de desconto
+	custoDesconto := custoConsumo * 0.90
+
+	// Saída formatada com duas casas decimais
+	fmt.Printf("Custo por kW: R$ %.2f\n", valorPorKw)
+	fmt.Printf("Custo do consumo: R$ %.2f\n", custoConsumo)
+	fmt.Printf("Custo com desconto: R$ %.2f\n", custoDesconto)
+}
