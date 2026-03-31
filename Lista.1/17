@@ -1,0 +1,40 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var x, y int
+
+	// PASSO 1: Aviso para o usuário
+	fmt.Print("Digite o valor de X e a quantidade Y de números pares: ")
+
+	// PASSO 2: Leitura dos dois valores na mesma linha
+	_, err := fmt.Scan(&x, &y)
+
+	// PASSO 3: Validação de erro de digitação
+	if err != nil {
+		fmt.Println("Erro: Digite apenas números inteiros.")
+		return
+	}
+
+	// PASSO 4: Verificar se o primeiro número (x) é par
+	if x%2 != 0 {
+		// Se o resto da divisão por 2 NÃO for zero, ele é ímpar
+		fmt.Println("O PRIMEIRO NUMERO NAO E PAR")
+	} else {
+		// PASSO 5: Se for par, gerar a sequência de Y números
+		// Usamos um laço que roda Y vezes
+		for i := 0; i < y; i++ {
+			// Imprime o valor atual de x seguido de um espaço
+			fmt.Printf("%d ", x)
+			
+			// Aumentamos x em 2 para pegar o próximo número par
+			x = x + 2
+		}
+		
+		// PASSO 6: O exercício pede um espaço e uma quebra de linha ao final
+		fmt.Println("") 
+	}
+}
