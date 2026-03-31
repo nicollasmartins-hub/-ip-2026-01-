@@ -1,1 +1,36 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	// PASSO 1: Declarar o Array (Vetor) e a variável da soma
+	// [5]int cria um espaço fixo para 5 números inteiros
+	var numeros [5]int
+	var soma int = 0
+
+	// PASSO 2: Loop para ler os 5 valores
+	fmt.Println("Digite 5 valores inteiros:")
+	for i := 0; i < 5; i++ {
+		fmt.Printf("Valor %d: ", i+1)
+
+		// Lemos a entrada e guardamos na posição 'i' do array
+		_, err := fmt.Scan(&numeros[i])
+
+		if err != nil {
+			fmt.Println("Erro: Digite apenas números inteiros.")
+			return
+		}
+	}
+
+	// PASSO 3: Loop para somar os valores guardados no array
+	// Usamos o 'range' que é o jeito mais moderno do Go percorrer listas
+	for _, valor := range numeros {
+		soma = soma + valor
+	}
+
+	// PASSO 4: Saída final
+	fmt.Printf("\nA SOMA DOS VALORES E = %d\n", soma)
+}
 
