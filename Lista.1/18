@@ -1,0 +1,27 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var a1, r, n int
+
+	fmt.Println("=== Soma de Progressão Aritmética ===")
+	fmt.Println("Digite o primeiro termo (a1), a razão (r) e a quantidade de termos (n):")
+
+	fmt.Scan(&a1, &r, &n)
+
+	soma := 0
+	termo := a1
+
+	fmt.Println("\nCalculando a soma dos termos...")
+
+	for i := 0; i < n; i++ {
+		fmt.Printf("Termo %d: %d\n", i+1, termo)
+		soma += termo
+		termo += r
+	}
+
+	fmt.Println("\nSoma total:", soma)
+}
