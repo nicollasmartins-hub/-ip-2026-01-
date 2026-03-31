@@ -1,0 +1,37 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	// PASSO 1: Declarar o Array para 10 números reais
+	// O [10] define o tamanho e float64 permite números com vírgula
+	var valores [10]float64
+
+	// PASSO 2: Loop para leitura (Ordem Normal)
+	fmt.Println("Digite 10 números reais:")
+	for i := 0; i < 10; i++ {
+		fmt.Printf("Digite o %dº valor: ", i+1)
+
+		// Lemos a entrada e guardamos na posição 'i'
+		_, err := fmt.Scan(&valores[i])
+
+		if err != nil {
+			fmt.Println("Erro: Digite um número válido.")
+			return
+		}
+	}
+
+	// PASSO 3: Loop para exibição (Ordem Inversa)
+	fmt.Println("\nValores na ordem inversa:")
+
+	// Começamos no índice 9 (último) e vamos até o 0 (primeiro)
+	// i-- significa que vamos subtraindo 1 a cada volta
+	for i := 9; i >= 0; i-- {
+		fmt.Printf("%.2f ", valores[i])
+	}
+
+	// Pula uma linha no final
+	fmt.Println()
+}
