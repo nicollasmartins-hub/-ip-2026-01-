@@ -1,0 +1,35 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var n int
+
+	// PASSO 1: Aviso para o usuário
+	fmt.Print("Digite um valor inteiro n (maior que 1): ")
+
+	// PASSO 2: Leitura do valor n
+	_, err := fmt.Scan(&n)
+
+	// PASSO 3: Validação de erro e das especificações (n > 1)
+	if err != nil || n <= 1 {
+		fmt.Println("Numero invalido!")
+		return
+	}
+
+	// PASSO 4: Inicializar a variável da soma com precisão dupla (float64)
+	var soma float64 = 0.0
+
+	// PASSO 5: O Laço de Repetição para o somatório
+	// Começamos em k = 1 e vamos até n
+	for k := 1; k <= n; k++ {
+		// IMPORTANTE: 1.0 garante que o Go trate como decimal.
+		// float64(k) converte o inteiro k para decimal para a divisão funcionar.
+		soma += 1.0 / float64(k)
+	}
+
+	// PASSO 6: Saída com 6 casas decimais conforme solicitado
+	fmt.Printf("%.6f\n", soma)
+}
