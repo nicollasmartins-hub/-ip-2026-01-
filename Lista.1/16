@@ -1,0 +1,41 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var salarioOriginal float64
+
+	// PASSO 1: Aviso para o usuário
+	fmt.Print("Digite o salário atual do funcionário: ")
+
+	// PASSO 2: Leitura do salário (usamos float64 para valores com centavos)
+	_, err := fmt.Scan(&salarioOriginal)
+
+	// PASSO 3: Validação de segurança
+	if err != nil {
+		fmt.Println("Erro: Digite um valor numérico válido.")
+		return
+	}
+	if salarioOriginal < 0 {
+		fmt.Println("Erro: O salário não pode ser negativo.")
+		return
+	}
+
+	var salarioNovo float64
+
+	// PASSO 4: Lógica do Reajuste (Estrutura de Decisão)
+	if salarioOriginal <= 300.00 {
+		// Regra 1: Até 300.00 -> 50% de aumento
+		// Multiplicar por 1.5 é o mesmo que somar 50%
+		salarioNovo = salarioOriginal * 1.50
+	} else {
+		// Regra 2: Acima de 300.00 -> 30% de aumento
+		// Multiplicar por 1.3 é o mesmo que somar 30%
+		salarioNovo = salarioOriginal * 1.30
+	}
+
+	// PASSO 5: Saída formatada com duas casas decimais
+	fmt.Printf("SALARIO COM REAJUSTE = %.2f\n", salarioNovo)
+}
