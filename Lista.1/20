@@ -1,0 +1,27 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var horas, minutos, segundos int
+
+	// PASSO 1: Avisos para o usuário
+	fmt.Print("Digite a quantidade de HORAS: ")
+	fmt.Scan(&horas)
+
+	fmt.Print("Digite a quantidade de MINUTOS: ")
+	fmt.Scan(&minutos)
+
+	fmt.Print("Digite a quantidade de SEGUNDOS: ")
+	fmt.Scan(&segundos)
+
+	// PASSO 2: O Cálculo da conversão
+	// 1 hora tem 3600 segundos (60 minutos * 60 segundos)
+	// 1 minuto tem 60 segundos
+	totalSegundos := (horas * 3600) + (minutos * 60) + segundos
+
+	// PASSO 3: Saída formatada
+	fmt.Printf("O TEMPO EM SEGUNDOS E = %d\n", totalSegundos)
+}
