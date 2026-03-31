@@ -1,0 +1,39 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	var h, a float64
+
+	// PASSO 1: Avisos para o usuário
+	fmt.Print("Digite a altura (h) e a aresta da base (a) separadas por espaço: ")
+
+	// PASSO 2: Leitura dos dois valores na mesma linha
+	_, err := fmt.Scan(&h, &a)
+
+	// PASSO 3: Validação de erro de digitação
+	if err != nil {
+		fmt.Println("Erro: Digite apenas números decimais usando ponto. Ex: 12.0 8.0")
+		return
+	}
+
+	// PASSO 4: Validação de valores físicos
+	if h <= 0 || a <= 0 {
+		fmt.Println("Erro: Os valores devem ser maiores que zero.")
+		return
+	}
+
+	// PASSO 5: Cálculo da Área do Hexágono (Ab)
+	// Fórmula: (3 * a² * √3) / 2
+	areaBase := (3 * math.Pow(a, 2) * math.Sqrt(3)) / 2
+
+	// PASSO 6: Cálculo do Volume (V)
+	// Fórmula: (1/3) * Ab * h
+	volume := (1.0 / 3.0) * areaBase * h
+
+	// PASSO 7: Saída formatada conforme o exercício
+	fmt.Printf("O VOLUME DA PIRAMIDE E = %.2f METROS CUBICOS\n", volume)
+}
