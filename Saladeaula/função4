@@ -1,0 +1,22 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var n int
+	f.Print("Digite um número para calcular a fatorial: ")
+	f.Scanln(&n)
+
+	resultado := fatorial(n)
+	f.Printf("O fatorial de %d é: %d\n", n, resultado)
+}
+func fatorial(n int) int {
+	if n <= 1 {
+		return 1
+	}
+	res := 1
+	for i := 2; i <= n; i++ {
+		res *= i
+	}
+	return res
+}
