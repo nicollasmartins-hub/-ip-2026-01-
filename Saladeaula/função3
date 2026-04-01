@@ -5,13 +5,13 @@ import f "fmt"
 func main() {
 	var X, Y, Z float64
 
-	f.Print("escreva o valor de X")
+	f.Print("escreva o valor de X: ")
 	f.Scanln(&X)
 
-	f.Print("escreva o valor de Y")
+	f.Print("escreva o valor de Y: ")
 	f.Scanln(&Y)
 
-	f.Print("escreva o valor de Z")
+	f.Print("escreva o valor de Z: ")
 	f.Scanln(&Z)
 
 	resultado := MEDIA(X, Y, Z)
