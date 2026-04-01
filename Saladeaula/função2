@@ -1,0 +1,30 @@
+package main
+
+import f "fmt"
+
+func main() {
+	// Declaração e leitura dos números a serem somados
+	n1, n2, n3 := 0, 0, 0
+	f.Print("Digite o primeiro número: ")
+	f.Scan(&n1)
+	f.Print("Digite o segundo número: ")
+	f.Scan(&n2)
+	f.Print("Digite o terceiro número: ")
+	f.Scan(&n3)
+	// Chamamos a função e guardamos o resultado na variável "maior"
+	resultado := encontrarMaior(n1, n2, n3)
+	// Imprimimos o resultado
+	f.Printf("O maior número entre %d, %d e %d é: %d\n", n1, n2, n3, resultado)
+}
+
+// Definimos a função encontrarMaior
+func encontrarMaior(a, b, c int) int {
+	maior := a
+	if b > maior {
+		maior = b
+	}
+	if c > maior {
+		maior = c
+	}
+	return maior
+}
