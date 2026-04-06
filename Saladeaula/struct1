@@ -1,0 +1,14 @@
+package main
+
+import f "fmt"
+
+type Criatura struct {
+	Nome  string
+}
+func main()  {
+	c := Criatura{
+	Nome: "The Guy",
+	}
+	f.Println(c.Nome)
+	
+}
