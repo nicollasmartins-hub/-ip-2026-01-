@@ -1,0 +1,38 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var a, b, c int 
+	var menor, inter, maior int
+	f.Print("Digite o primeiro número: ")
+	f.Scan(&a)
+	
+	f.Print("Digite o segundo número: ")
+	f.Scan(&b)
+
+	f.Print("Digite o terceiro número: ")
+	f.Scan(&c)
+
+	if a > b && a > c {
+		maior = a
+	} else if b > a && b > c {
+		maior = b
+	} else {
+		maior = c
+	}
+
+	// 2. Descobrir o MENOR
+	if a < b && a < c {
+		menor = a
+	} else if b < a && b < c {
+		menor = b
+	} else {
+		menor = c
+	}
+	inter = (a + b + c) - maior - menor
+
+	f.Printf("%d, %d, %d", menor, inter, maior)
+
+	
+}
