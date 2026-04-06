@@ -1,0 +1,16 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var numero int 
+	
+	f.Print("Digite um número inteiro: ")
+	f.Scan(&numero)
+	
+	if numero > 20 && numero < 90 {
+		f.Printf("O número %d está entre 20 e 90.\n", numero)
+	} else {
+		f.Printf("O número %d não está entre 20 e 90.\n", numero)
+	}
+}
