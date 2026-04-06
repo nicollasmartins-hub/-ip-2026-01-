@@ -1,0 +1,26 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var a, b int 
+	f.Print("Digite o primeiro número: ")
+	f.Scan(&a)
+	
+	f.Print("Digite o segundo número: ")
+	f.Scan(&b)
+
+	if b == 0 {
+		f.Print("Não é possível dividir por zero.")
+		return
+	}
+	if divisivel(a, b) {
+		f.Printf("%d é divisível por %d.\n", a, b)
+	} else {
+		f.Printf("%d não é divisível por %d.\n", a, b)
+	}	
+
+}
+func divisivel(a, b int) bool {
+	return a%b == 0	
+}
