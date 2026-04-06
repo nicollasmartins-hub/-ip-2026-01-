@@ -1,0 +1,23 @@
+package main
+
+import f "fmt"
+
+type Pessoa struct {
+	nome string
+	idade int
+	profissao string
+	salario int
+}
+func main() {
+	var pes1 Pessoa
+	// Especificamente da pes1
+	pes1.nome = "Eduardo"
+	pes1.idade = 25
+	pes1.profissao = "Engenheiro de Software"
+	pes1.salario = 67000
+	// Imprime os dados da pes1
+	f.Println("Nome:", pes1.nome)
+	f.Println("Idade:", pes1.idade)
+	f.Println("Profissão:", pes1.profissao)
+	f.Println("Salário:", pes1.salario)
+}
