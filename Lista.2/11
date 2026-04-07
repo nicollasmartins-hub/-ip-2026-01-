@@ -1,0 +1,15 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var x float64
+	f.Print("Digite o valor de x: ")
+	f.Scan(&x)
+if x == 2 {
+		f.Println("Erro: Não é possível calcular f(x) quando x é igual a 2 (divisão por zero).")
+	} else { 
+		resultado := 8 / (2 - x)
+		f.Printf("Para x = %.2f, o valor de f(x) é: %.2f\n", x, resultado)
+	}
+}
