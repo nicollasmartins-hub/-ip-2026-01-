@@ -1,0 +1,40 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var precoFabrica, precoFinal float64
+	var op int
+
+	f.Print("Digite o preço de fábrica do carro: R$ ")
+	f.Scan(&precoFabrica)
+
+	precoFinal = precoFabrica
+
+	f.Print("Deseja Ar condicionado? (1-Sim / 0-Não): ")
+	f.Scan(&op)
+	if op == 1 {
+		precoFinal = precoFinal + 1750.00
+	}
+
+	f.Print("Deseja Pintura metálica? (1-Sim / 0-Não): ")
+	f.Scan(&op)
+	if op == 1 {
+		precoFinal = precoFinal + 800.00
+	}
+
+	f.Print("Deseja Vidro elétrico? (1-Sim / 0-Não): ")
+	f.Scan(&op)
+	if op == 1 {
+		precoFinal = precoFinal + 1200.00
+	}
+
+	f.Print("Deseja Direção hidráulica? (1-Sim / 0-Não): ")
+	f.Scan(&op)
+	if op == 1 {
+		precoFinal = precoFinal + 2000.00
+	}
+
+	f.Printf("\nO preço final do carro é: R$ %.2f\n", precoFinal)
+}
+	
