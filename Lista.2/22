@@ -1,0 +1,39 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var matricula int
+	var horasExtras, salHE, salBruto, descINSS, descIR, salLiquido float64
+
+	const salMinimo = 788.00
+	const valorHE = 10.00
+
+	f.Print("Digite a matrícula do funcionário: ")
+	f.Scan(&matricula)
+	f.Print("Digite a quantidade de horas-extras: ")
+	f.Scan(&horasExtras)
+
+	salHE = horasExtras * valorHE
+	salBruto = (3 * salMinimo) + salHE
+
+	if salBruto > 1500.00 {
+		descINSS = salBruto * 0.12
+	} else {
+		descINSS = 0
+	}
+
+	if salBruto > 2000.00 {
+		descIR = salBruto * 0.20
+	} else {
+		descIR = 0
+	}
+
+	salLiquido = salBruto - descINSS - descIR
+
+	f.Printf("\nMatrícula: %d\n", matricula)
+	f.Printf("Salário Bruto: R$ %.2f\n", salBruto)
+	f.Printf("Desconto INSS: R$ %.2f\n", descINSS)
+	f.Printf("Desconto IR: R$ %.2f\n", descIR)
+	f.Printf("Salário Líquido: R$ %.2f\n", salLiquido)
+}
