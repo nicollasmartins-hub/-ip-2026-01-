@@ -1,0 +1,35 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var precoNormal, precoFinal float64
+	var codigo int
+
+	f.Print("Digite o preço de etiqueta do produto: R$ ")
+	f.Scan(&precoNormal)
+
+	f.Println("\n--- CONDIÇÕES DE PAGAMENTO ---")
+	f.Println("1 - À vista (Dinheiro ou Cheque): 10% de desconto")
+	f.Println("2 - À vista (Cartão de Crédito): 5% de desconto")
+	f.Println("3 - Em 2 vezes: Preço normal de etiqueta")
+	f.Println("4 - Em 3 vezes: Preço normal + 10% de juros")
+	f.Print("Escolha a condição (1 a 4): ")
+	f.Scan(&codigo)
+
+	switch codigo {
+	case 1:
+		precoFinal = precoNormal * 0.90
+	case 2:
+		precoFinal = precoNormal * 0.95
+	case 3:
+		precoFinal = precoNormal
+	case 4:
+		precoFinal = precoNormal * 1.10
+	default:
+		f.Println("\nErro: Código de pagamento inválido!")
+		return
+	}
+
+	f.Printf("\nO valor total a ser pago é: R$ %.2f\n", precoFinal)
+}
