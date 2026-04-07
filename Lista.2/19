@@ -1,0 +1,48 @@
+package main
+
+import (
+	f "fmt"
+	m "math"
+)
+
+func main() {
+	var opcao int
+	var raio, altura, volume, area float64
+
+	f.Println("--- CALCULADORA GEOMÉTRICA ---")
+	f.Println("1 - Cone Reto")
+	f.Println("2 - Cilindro")
+	f.Println("3 - Esfera")
+	f.Print("Escolha a figura: ")
+	f.Scan(&opcao)
+
+	switch opcao {
+	case 1:
+		f.Print("Digite o raio: ")
+		f.Scan(&raio)
+		f.Print("Digite a altura: ")
+		f.Scan(&altura)
+		volume = (m.Pi * m.Pow(raio, 2) * altura) / 3
+		area = m.Pi * raio * m.Sqrt(m.Pow(raio, 2)+m.Pow(altura, 2))
+		f.Printf("\nCone: Volume = %.2f | Área = %.2f\n", volume, area)
+
+	case 2:
+		f.Print("Digite o raio: ")
+		f.Scan(&raio)
+		f.Print("Digite a altura: ")
+		f.Scan(&altura)
+		volume = m.Pi * m.Pow(raio, 2) * altura
+		area = 2 * m.Pi * raio * altura
+		f.Printf("\nCilindro: Volume = %.2f | Área = %.2f\n", volume, area)
+
+	case 3:
+		f.Print("Digite o raio: ")
+		f.Scan(&raio)
+		volume = (4.0 / 3.0) * m.Pi * m.Pow(raio, 3)
+		area = 4 * m.Pi * m.Pow(raio, 2)
+		f.Printf("\nEsfera: Volume = %.2f | Área = %.2f\n", volume, area)
+
+	default:
+		f.Println("\nErro: Opção inválida!")
+	}
+}
