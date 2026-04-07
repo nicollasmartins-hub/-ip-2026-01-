@@ -1,0 +1,37 @@
+package main
+
+import (
+	f "fmt"
+	m "math"
+)
+
+func main() {
+	var a, b, c float64
+
+	f.Print("Digite o valor de A: ")
+	f.Scan(&a)
+	f.Print("Digite o valor de B: ")
+	f.Scan(&b)
+	f.Print("Digite o valor de C: ")
+	f.Scan(&c)
+
+	if a == 0 {
+		f.Println("Erro: O coeficiente A não pode ser zero.")
+		return
+	}
+
+	delta := (b * b) - (4 * a * c)
+
+	if delta < 0 {
+		f.Println("RAÍZES IMAGINÁRIAS")
+	} else if delta == 0 {
+		x := -b / (2 * a)
+		f.Println("RAIZ ÚNICA")
+		f.Printf("x = %.2f\n", x)
+	} else {
+		x1 := (-b + m.Sqrt(delta)) / (2 * a)
+		x2 := (-b - m.Sqrt(delta)) / (2 * a)
+		f.Println("RAÍZES DISTINTAS")
+		f.Printf("x1 = %.2f\nx2 = %.2f\n", x1, x2)
+	}
+}
