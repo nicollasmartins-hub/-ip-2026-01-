@@ -1,0 +1,36 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var conta int
+	var tipo string
+	var consumo, valorTotal float64
+
+	f.Print("Digite o número da conta: ")
+	f.Scan(&conta)
+	f.Print("Digite o tipo (R-Residencial, C-Comercial, I-Industrial): ")
+	f.Scan(&tipo)
+	f.Print("Digite o consumo em m3: ")
+	f.Scan(&consumo)
+
+	if tipo == "R" || tipo == "r" {
+		valorTotal = 5.00 + (consumo * 0.05)
+	} else if tipo == "C" || tipo == "c" {
+		valorTotal = 500.00
+		if consumo > 80 {
+			valorTotal = valorTotal + ((consumo - 80) * 0.25)
+		}
+	} else if tipo == "I" || tipo == "i" {
+		valorTotal = 800.00
+		if consumo > 100 {
+			valorTotal = valorTotal + ((consumo - 100) * 0.04)
+		}
+	} else {
+		f.Println("Erro: Tipo de consumidor inválido!")
+		return
+	}
+
+	f.Printf("\nCONTA: %d\n", conta)
+	f.Printf("VALOR A PAGAR: R$ %.2f\n", valorTotal)
+}
