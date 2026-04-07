@@ -1,0 +1,39 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var id int
+	var n1, n2, n3, me, mf float64
+	var conceito, status string
+
+	f.Print("Digite o número de identificação: ")
+	f.Scan(&id)
+	f.Print("Digite as 3 notas e a média dos exercícios: ")
+	f.Scan(&n1, &n2, &n3, &me)
+
+	mf = (n1 + (n2 * 2) + (n3 * 3) + me) / 7
+
+	if mf >= 9.0 {
+		conceito = "A"
+		status = "APROVADO"
+	} else if mf >= 7.5 {
+		conceito = "B"
+		status = "APROVADO"
+	} else if mf >= 6.0 {
+		conceito = "C"
+		status = "APROVADO"
+	} else if mf >= 4.0 {
+		conceito = "D"
+		status = "REPROVADO"
+	} else {
+		conceito = "E"
+		status = "REPROVADO"
+	}
+
+	f.Printf("\nID do Aluno: %d\n", id)
+	f.Printf("Notas: %.1f, %.1f, %.1f\n", n1, n2, n3)
+	f.Printf("Média Exercícios: %.1f\n", me)
+	f.Printf("Média de Aproveitamento: %.2f\n", mf)
+	f.Printf("Conceito: %s | Status: %s\n", conceito, status)
+}
