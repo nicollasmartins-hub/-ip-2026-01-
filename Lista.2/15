@@ -1,0 +1,50 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var dia, mes, ano int
+	var mesExtenso string
+
+	f.Print("Digite o dia: ")
+	f.Scan(&dia)
+	f.Print("Digite o mês (1 a 12): ")
+	f.Scan(&mes)
+	f.Print("Digite o ano: ")
+	f.Scan(&ano)
+
+	switch mes {
+	case 1:
+		mesExtenso = "Janeiro"
+	case 2:
+		mesExtenso = "Fevereiro"
+	case 3:
+		mesExtenso = "Março"
+	case 4:
+		mesExtenso = "Abril"
+	case 5:
+		mesExtenso = "Maio"
+	case 6:
+		mesExtenso = "Junho"
+	case 7:
+		mesExtenso = "Julho"
+	case 8:
+		mesExtenso = "Agosto"
+	case 9:
+		mesExtenso = "Setembro"
+	case 10:
+		mesExtenso = "Outubro"
+	case 11:
+		mesExtenso = "Novembro"
+	case 12:
+		mesExtenso = "Dezembro"
+	default:
+		mesExtenso = "Inexistente"
+	}
+
+	if mesExtenso == "Inexistente" {
+		f.Println("Erro: O mês digitado é inválido.")
+	} else {
+		f.Printf("\n%d de %s de %d\n", dia, mesExtenso, ano)
+	}
+}
