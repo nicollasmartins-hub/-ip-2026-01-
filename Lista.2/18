@@ -1,0 +1,33 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var precoNormal, precoFinal float64
+	var dia, categoria int
+
+	f.Print("Digite o preço normal do DVD: R$ ")
+	f.Scan(&precoNormal)
+
+	f.Println("--- DIA DA SEMANA ---")
+	f.Println("1-Dom, 2-Seg, 3-Ter, 4-Qua, 5-Qui, 6-Sex, 7-Sab")
+	f.Print("Escolha o dia: ")
+	f.Scan(&dia)
+
+	f.Println("\n--- CATEGORIA ---")
+	f.Println("1-Comum, 2-Lançamento")
+	f.Print("Escolha a categoria: ")
+	f.Scan(&categoria)
+
+	precoFinal = precoNormal
+
+	if dia == 2 || dia == 3 || dia == 5 {
+		precoFinal = precoFinal * 0.60
+	}
+
+	if categoria == 2 {
+		precoFinal = precoFinal * 1.15
+	}
+
+	f.Printf("\nO valor final do aluguel é: R$ %.2f\n", precoFinal)
+}
