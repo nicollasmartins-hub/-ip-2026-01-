@@ -1,0 +1,49 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var destino, retorno int
+	var preco float64
+
+	
+	f.Println("--- TABELA DE DESTINOS ---")
+	f.Println("1 - Região Norte")
+	f.Println("2 - Região Nordeste")
+	f.Println("3 - Região Centro-Oeste")
+	f.Println("4 - Região Sul")
+	f.Print("Digite o código do destino: ")
+	f.Scan(&destino)
+
+	
+	f.Println("\n--- OPÇÕES DE VIAGEM ---")
+	f.Println("1 - Ida e Volta")
+	f.Println("2 - Só Ida")
+	f.Print("Digite a opção desejada: ")
+	f.Scan(&retorno)
+
+	
+	if retorno != 1 && retorno != 2 {
+		f.Println("\nERRO: Opção de retorno inválida!")
+		return // Encerra o programa
+	}
+
+	
+	switch destino {
+	case 1: // Norte
+		if retorno == 1 { preco = 900.00 } else { preco = 500.00 }
+	case 2: // Nordeste
+		if retorno == 1 { preco = 650.00 } else { preco = 350.00 }
+	case 3: // Centro-Oeste
+		if retorno == 1 { preco = 600.00 } else { preco = 350.00 }
+	case 4: // Sul
+		if retorno == 1 { preco = 550.00 } else { preco = 300.00 }
+	default:
+		
+		f.Println("\nERRO: Destino inexistente!")
+		return
+	}
+
+	
+	f.Printf("\nO valor da passagem é: R$ %.2f\n", preco)
+}
