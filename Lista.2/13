@@ -1,0 +1,17 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var numero int
+
+	f.Print("Digite um número inteiro de 3 casas: ")
+	f.Scan(&numero)
+
+	if numero >= 100 && numero <= 999 {
+		dezena := (numero / 10) % 10
+		f.Printf("O algarismo da casa das dezenas é: %d\n", dezena)
+	} else {
+		f.Println("Erro: O número informado não possui 3 casas!")
+	}
+}
