@@ -1,0 +1,26 @@
+package main
+
+import f "fmt"
+
+func BuscaSequencial(l []int, x int) int {
+	n := len(l)
+	
+	for i := 0; i < n; i++ {
+		if l[i] == x {
+			return i
+		}
+	}
+	return -1
+}
+
+func main() {
+	lista := []int{10, 45, 23, 67, 89, 12}
+	alvo := 67
+
+	resultado := BuscaSequencial(lista, alvo)	
+	if resultado != -1 {
+		f.Printf("Elemento encontrado no índice: %d", resultado)
+	} else {
+		f.Println("Elemento não encontrado")
+	}
+}
