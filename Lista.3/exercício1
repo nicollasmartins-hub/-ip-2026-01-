@@ -1,0 +1,32 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var n1, n2 int
+
+	f.Print("Digite o número da base: ")
+	f.Scan(&n1)
+
+	if n1 < 0{
+		f.Print("Erro: insira um número inteiro positivo para a base.")
+		return
+}
+
+
+	f.Print("Digite o número do expoente: ")	
+	f.Scan(&n2)
+
+	if n2 < 0{
+		f.Print("Erro: insira um número inteiro positivo para expoente.")
+		return
+}
+	
+	
+	resultado := 1
+	for i := 0; i < n2; i++ {
+		resultado *= n1
+	}
+	f.Printf("O resultado de %d elevado a %d é %d.\n", n1, n2, resultado)
+	
+}
