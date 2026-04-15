@@ -1,0 +1,34 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var numero int
+
+	for {
+		f.Print("Digite um número ou 0 para sair: ")
+		f.Scan(&numero)
+
+		if numero <= 0 {
+			f.Println("Programa encerrado.")
+			break
+		}
+
+		ehPerfeito := false
+		raizencontrada := 0
+
+		for i := 1; i <= numero; i++ {
+			if i*i == numero {
+				ehPerfeito = true
+				raizencontrada = i
+				break
+			}
+		} 
+
+		if ehPerfeito {
+			f.Printf("O número %d é um quadrado perfeito. Sua raiz quadrada é %d.\n", numero, raizencontrada)
+		} else {
+			f.Printf("O número %d não é um quadrado perfeito.\n", numero)
+		}
+	}
+}
