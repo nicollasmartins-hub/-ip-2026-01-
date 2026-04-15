@@ -1,0 +1,25 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var salariodeCarlos, salariodeJoão float64
+
+	f.Printf("Digite o salário de Carlos: ")
+	f.Scanln(&salariodeCarlos)	
+
+	salariodeJoão = salariodeCarlos / 3
+
+	meses := 0
+
+	for salariodeJoão < salariodeCarlos {
+		salariodeCarlos *= 1.02
+		salariodeJoão *= 1.05
+		meses++
+	}
+
+	f.Printf("Carlos levará %d meses para ganhar o mesmo ou mais que João.\n", meses)
+	
+	
+	
+}
