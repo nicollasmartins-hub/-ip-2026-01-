@@ -1,0 +1,24 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var soma, contador float64
+
+	for i := 50; i <= 70; i++ {
+		
+		if i%2 == 0 {
+			soma += float64(i)
+			contador++
+		}
+	}
+	
+	if contador > 0 {
+
+	media := soma / contador
+	f.Printf("A soma dos números pares entre 50 e 70 é: %.2f\n", soma)
+	f.Printf("A média aritmética dos números pares entre 50 e 70 é: %.2f\n", media)
+	}
+	
+	
+}
