@@ -1,0 +1,61 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var ( 
+		idade, opção int
+		altura, peso float64
+		totalPessoas, qtdMais50 float64
+        qtd10a20, qtdMenos40kg  float64
+		 somaAlturas10a20 float64
+	)
+
+	for {
+		f.Println("Digite a idade da pessoa:")
+		f.Scan(&idade)
+		
+		f.Println("Digite a altura da pessoa:")
+		f.Scan(&altura)
+		
+		f.Println("Digite o peso da pessoa:")
+		f.Scan(&peso)
+		
+
+		totalPessoas++
+
+		if idade > 50 {
+			qtdMais50++
+		}
+
+		if idade >= 10 && idade <= 20 {
+			qtd10a20++
+			somaAlturas10a20 += altura
+			break
+		}
+
+		if peso < 40 {
+			qtdMenos40kg++
+		}
+
+		f.Println("Deseja continuar? (1 para sim, 0 para não):")
+		f.Scan(&opção)
+		if opção != 1 {
+			break
+		}
+	}
+
+	if qtd10a20 > 0 {
+		media := somaAlturas10a20 / qtd10a20
+		f.Printf("A média de altura das pessoas entre 10 e 20 anos é: %.2f\n", media)
+	} else {
+		f.Println("Não há pessoas entre 10 e 20 anos para calcular a média de altura.")
+	}
+
+	if totalPessoas > 0 {
+		porcentagem := (qtdMais50 / totalPessoas) * 100
+		f.Printf("A porcentagem de pessoas com menos de 40 kg é: %.2f%%\n", porcentagem)
+
+}
+
+}
