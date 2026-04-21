@@ -1,0 +1,60 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var num float64
+	var soma, somaPares, maior, menor float64
+	var qtd, qtdPares, qtdImpares int
+
+	f.Println("Digite os números (30000 para sair):")
+
+	for {
+		f.Scan(&num)
+
+		if num == 30000 {
+			break
+		}
+
+		if qtd == 0 {
+			maior = num
+			menor = num
+		}
+
+		soma += num
+		qtd++
+
+		if num > maior {
+			maior = num
+		}
+		if num < menor {
+			menor = num
+		}
+
+		if int(num)%2 == 0 {
+			somaPares += num
+			qtdPares++
+		} else {
+			qtdImpares++
+		}
+	}
+
+	if qtd > 0 {
+		f.Printf("\na) Soma: %.2f", soma)
+		f.Printf("\nb) Quantidade: %d", qtd)
+		f.Printf("\nc) Média geral: %.2f", soma/float64(qtd))
+		f.Printf("\nd) Maior número: %.2f", maior)
+		f.Printf("\ne) Menor número: %.2f", menor)
+
+		if qtdPares > 0 {
+			f.Printf("\nf) Média dos pares: %.2f", somaPares/float64(qtdPares))
+		} else {
+			f.Print("\nf) Média dos pares: Ninguém digitou números pares.")
+		}
+
+		percentagemImpares := (float64(qtdImpares) / float64(qtd)) * 100
+		f.Printf("\ng) Percentagem de ímpares: %.2f%%\n", percentagemImpares)
+	} else {
+		f.Println("Nenhum número foi digitado antes de encerrar.")
+	}
+}
