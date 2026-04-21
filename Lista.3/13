@@ -1,0 +1,15 @@
+package main
+
+import f "fmt"
+
+func main() {
+	h := 0.0
+	numerador := 1.0
+
+	for denominador := 1.0; denominador <= 50; denominador++ {
+		h += numerador / denominador
+		numerador += 2
+	}
+
+	f.Printf("H = %.4f\n", h)
+}
