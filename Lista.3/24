@@ -1,0 +1,29 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var a float64
+	f.Print("Digite o ângulo A em radianos: ")
+	f.Scan(&a)
+
+	a3 := a * a * a
+	a5 := a3 * a * a
+	a7 := a5 * a * a
+
+	termo1 := a
+	termo2 := a3 / 6          
+	termo3 := a5 / 120         
+	termo4 := a7 / 5040        
+
+	senA := termo1 - termo2 + termo3 - termo4
+
+	f.Println("Tabela de Valores (Série de Mac-Laurin):")
+	f.Println("---------------------------------------")
+	f.Printf("A       : %10.6f\n", termo1)
+	f.Printf("- A³/3! : %10.6f\n", -termo2)
+	f.Printf("+ A⁵/5! : %10.6f\n", termo3)
+	f.Printf("- A⁷/7! : %10.6f\n", -termo4)
+	f.Println("---------------------------------------")
+	f.Printf("Sen(A)  : %10.6f\n", senA)
+}
