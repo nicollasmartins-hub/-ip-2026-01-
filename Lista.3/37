@@ -1,0 +1,28 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var n8 int
+	f.Print("Digite um número inteiro positivo (base 8): ")
+	f.Scan(&n8)
+
+	n10 := 0
+	potencia := 1
+	original := n8
+
+	for n8 > 0 {
+		digito := n8 % 10
+		
+		if digito >= 8 {
+			f.Println("Erro: O número digitado não é um octal válido.")
+			return
+		}
+
+		n10 += digito * potencia
+		potencia *= 8
+		n8 /= 10
+	}
+
+	f.Printf("O equivalente de %d (base 8) na base 10 é: %d\n", original, n10)
+}
