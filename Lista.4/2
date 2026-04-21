@@ -1,0 +1,14 @@
+package main
+
+import "fmt"
+
+func main() {
+	numeros := []float64{10.5, 2.3, 7.2, 5.0}
+	soma := 0.0
+
+	for _, valor := range numeros {
+		soma += valor
+	}
+
+	fmt.Printf("A soma total é: %.2f\n", soma)
+}
