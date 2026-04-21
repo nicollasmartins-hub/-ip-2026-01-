@@ -1,0 +1,14 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var n int
+	f.Print("Digite o número de termos (N): ")
+	f.Scan(&n)
+
+	for i := 1; i <= n; i++ {
+		f.Printf("%d ", i*i)
+	}
+	f.Println()
+}
