@@ -1,0 +1,30 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var n, termo1, termo2 int
+
+	f.Print("Digite o 1º termo: ")
+	f.Scan(&termo1)
+	f.Print("Digite o 2º termo: ")
+	f.Scan(&termo2)
+	f.Print("Digite a quantidade de termos (N >= 3): ")
+	f.Scan(&n)
+
+	f.Printf("%d %d", termo1, termo2)
+
+	for i := 3; i <= n; i++ {
+		var proximo int
+		if i%2 != 0 {
+			proximo = termo2 + termo1
+		} else {
+			proximo = termo2 - termo1
+		}
+		f.Printf(" %d", proximo)
+
+		termo1 = termo2
+		termo2 = proximo
+	}
+	f.Println()
+}
