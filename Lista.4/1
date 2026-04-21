@@ -1,0 +1,16 @@
+package main
+
+import "fmt"
+
+func potencia(x, n int) int {
+	resultado := 1
+	for i := 0; i < n; i++ {
+		resultado *= x
+	}
+	return resultado
+}
+
+func main() {
+	x, n := 2, 3
+	fmt.Printf("%d elevado a %d é %d\n", x, n, potencia(x, n))
+}
