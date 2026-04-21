@@ -1,0 +1,31 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var n1, n2 int
+	f.Print("Digite N1: ")
+	f.Scan(&n1)
+	f.Print("Digite N2: ")
+	f.Scan(&n2)
+
+	if n1 <= 0 || n2 <= 0 {
+		f.Println("Por favor, digite apenas números positivos.")
+		return
+	}
+
+	maior := n1
+	if n2 > n1 {
+		maior = n2
+	}
+
+	mmc := maior
+	for {
+		if mmc%n1 == 0 && mmc%n2 == 0 {
+			break
+		}
+		mmc += maior
+	}
+
+	f.Printf("O MMC de %d e %d é: %d\n", n1, n2, mmc)
+}
