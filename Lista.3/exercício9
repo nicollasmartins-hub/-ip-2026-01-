@@ -1,0 +1,32 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var n int
+	var nota1, nota2 float64
+
+	f.Print("Digite a quantidade de alunos (N): ")
+	f.Scan(&n)
+
+	for i := 1; i <= n; i++ {
+		f.Printf("\n--- Aluno %d ---\n", i)
+		
+		f.Print("Digite a primeira nota: ")
+		f.Scan(&nota1)
+		
+		f.Print("Digite a segunda nota: ")
+		f.Scan(&nota2)
+
+		media := (nota1 + nota2) / 2
+		f.Printf("Média: %.2f - ", media)
+
+		if media < 3 {
+			f.Println("Mensagem: Reprovado")
+		} else if media >= 3 && media < 7 {
+			f.Println("Mensagem: Exame")
+		} else {
+			f.Println("Mensagem: Aprovado")
+		}
+	}
+}
