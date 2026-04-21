@@ -1,0 +1,30 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var n int
+	f.Print("Digite a quantidade de termos (N): ")
+	f.Scan(&n)
+
+	if n <= 0 {
+		f.Println("Erro: O número de termos deve ser positivo.")
+		return
+	}
+
+	s := 0.0
+	numerador := 1000.0
+
+	for den := 1.0; den <= float64(n); den++ {
+		termo := numerador / den
+
+		if int(den)%2 != 0 {
+			s += termo
+		} else {
+			s -= termo
+		}
+		numerador -= 3
+	}
+
+	f.Printf("Resultado da série para %d termos: %.4f\n", n, s)
+}
