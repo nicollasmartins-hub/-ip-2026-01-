@@ -1,0 +1,27 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var n1, n2 int
+	f.Print("Digite N1: ")
+	f.Scan(&n1)
+	f.Print("Digite N2: ")
+	f.Scan(&n2)
+
+	resultado := 0
+	positivoN2 := n2
+	if n2 < 0 {
+		positivoN2 = -n2
+	}
+
+	for i := 0; i < positivoN2; i++ {
+		resultado += n1
+	}
+
+	if n2 < 0 {
+		resultado = -resultado
+	}
+
+	f.Printf("%d x %d = %d\n", n1, n2, resultado)
+}
