@@ -1,0 +1,59 @@
+package main
+
+import (
+	f "fmt"
+	s "strconv"
+	t "strings"
+)
+
+func main() {
+	var entrada string
+	f.Print("Digite o CPF (11 dígitos): ")
+	f.Scan(&entrada)
+
+	entrada = t.ReplaceAll(entrada, ".", "")
+	entrada = t.ReplaceAll(entrada, "-", "")
+
+	if len(entrada) != 11 {
+		f.Println("Erro: CPF incompleto.")
+		return
+	}
+
+	var d [11]int
+	for i := 0; i < 11; i++ {
+		v, err := s.Atoi(string(entrada[i]))
+		if err != nil {
+			f.Println("Erro: Apenas números.")
+			return
+		}
+		d[i] = v
+	}
+
+	// 1º Dígito
+	soma1 := 0
+	for i := 0; i < 9; i++ {
+		soma1 += d[i] * (10 - i)
+	}
+	resto1 := soma1 % 11
+	dv1 := 0
+	if resto1 >= 2 {
+		dv1 = 11 - resto1
+	}
+
+	// 2º Dígito
+	soma2 := 0
+	for i := 0; i < 10; i++ {
+		soma2 += d[i] * (11 - i)
+	}
+	resto2 := soma2 % 11
+	dv2 := 0
+	if resto2 >= 2 {
+		dv2 = 11 - resto2
+	}
+
+	if dv1 == d[9] && dv2 == d[10] {
+		f.Println("CPF Válido")
+	} else {
+		f.Printf("CPF Inválido. Esperado: %d%d\n", dv1, dv2)
+	}
+}
