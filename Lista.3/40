@@ -1,0 +1,35 @@
+package main
+
+import f "fmt"
+
+func main() {
+	const despesa = 300.0
+	preco := 6.0
+	ingressos := 130.0
+
+	var lucroMax, precoMax, ingressosMax float64
+	primeiro := true
+
+	f.Printf("%-10s | %-10s | %-10s\n", "Preço", "Vendas", "Lucro")
+	f.Println("--------------------------------------")
+
+	for preco >= 1.0 {
+		lucro := (preco * ingressos) - despesa
+		f.Printf("R$ %7.2f | %10.0f | R$ %7.2f\n", preco, ingressos, lucro)
+
+		if primeiro || lucro > lucroMax {
+			lucroMax = lucro
+			precoMax = preco
+			ingressosMax = ingressos
+			primeiro = false
+		}
+
+		preco -= 0.60
+		ingressos += 30
+	}
+
+	f.Println("--------------------------------------")
+	f.Printf("Lucro Máximo: R$ %.2f\n", lucroMax)
+	f.Printf("Preço Ideal:  R$ %.2f\n", precoMax)
+	f.Printf("Ingressos:    %.0f\n", ingressosMax)
+}
