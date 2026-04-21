@@ -1,0 +1,24 @@
+package main
+
+import f "fmt"
+
+func decimalParaBinario(n int) string {
+	if n == 0 {
+		return "0"
+	}
+
+	binario := ""
+	for n > 0 {
+		resto := n % 2
+		binario = f.Sprintf("%d%s", resto, binario) 
+		n = n / 2
+	}
+	return binario
+}
+
+func main() {
+	numero := 25
+	resultado := decimalParaBinario(numero)
+
+	f.Printf("O número %d em binário é: %s\n", numero, resultado)
+}
