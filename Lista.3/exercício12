@@ -1,0 +1,29 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var x float64
+	f.Print("Digite o valor de X: ")
+	f.Scan(&x)
+
+	s := x 
+	for i := 1; i < 20; i++ {
+		fatorial := 1.0
+		for j := 1; j <= i; j++ {
+			fatorial *= float64(j)
+		}
+
+	
+		termo := x / fatorial
+
+		if i%2 != 0 {
+			s -= termo 
+		} else {
+			s += termo 
+		}
+	}
+
+	f.Printf("O resultado do somatório S é: %.4f\n", s)
+}
+
