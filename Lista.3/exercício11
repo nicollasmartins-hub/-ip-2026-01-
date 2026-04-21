@@ -1,0 +1,24 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var n int
+
+	f.Print("Digite um número para calcular o fatorial: ")
+	f.Scan(&n)
+
+	if n < 0 {
+		f.Println("Erro: Não existe fatorial de número negativo.")
+		return
+	}
+
+	resultado := 1
+
+	for i := 1; i <= n; i++ {
+		resultado = resultado * i
+	}
+
+	f.Printf("O fatorial de %d (%d!) é: %d\n", n, n, resultado)
+}
+
