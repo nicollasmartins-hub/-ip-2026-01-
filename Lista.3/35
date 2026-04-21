@@ -1,0 +1,32 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var n10 int
+	f.Print("Digite um número inteiro positivo (base 10): ")
+	f.Scan(&n10)
+
+	if n10 < 0 {
+		f.Println("Erro: O número deve ser positivo.")
+		return
+	}
+
+	if n10 == 0 {
+		f.Println("Base 2: 0")
+		return
+	}
+
+	base2 := ""
+	for n10 > 0 {
+		resto := n10 % 2
+		if resto == 0 {
+			base2 = "0" + base2
+		} else {
+			base2 = "1" + base2
+		}
+		n10 /= 2
+	}
+
+	f.Printf("Base 2: %s\n", base2)
+}
