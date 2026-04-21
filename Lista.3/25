@@ -1,0 +1,27 @@
+package main
+
+import f "fmt"
+
+func main() {
+	s := 0.0
+	num := 1.0
+	raizDen := 15.0
+	posicao := 1
+
+	for raizDen >= 1 {
+		den := raizDen * raizDen
+		termo := num / den
+
+		if posicao%2 != 0 {
+			s += termo
+		} else {
+			s -= termo
+		}
+
+		num *= 2
+		raizDen -= 1
+		posicao++
+	}
+
+	f.Printf("S = %.4f\n", s)
+}
