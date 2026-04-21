@@ -1,0 +1,35 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var n int
+
+	f.Print("Quantos termos da sequência de Fibonacci você deseja ver? ")
+	f.Scan(&n)
+
+	// O problema pede N >= 3, mas vamos garantir que o programa lide com isso
+	if n < 3 {
+		f.Println("Por favor, digite um número maior ou igual a 3.")
+		return
+	}
+
+	// Definindo os dois primeiros "tijolos" da construção
+	termo1 := 0
+	termo2 := 1
+
+	f.Printf("Sequência: %d – %d", termo1, termo2)
+
+	// Começamos o laço a partir do 3º termo, pois o 1º e o 2º já temos
+	for i := 3; i <= n; i++ {
+		proximo := termo1 + termo2
+		f.Printf(" – %d", proximo)
+
+		// A "Dança das Cadeiras":
+		// O termo 1 recebe o valor do termo 2
+		termo1 = termo2
+		// O termo 2 recebe o valor do que acabou de ser calculado
+		termo2 = proximo
+	}
+	f.Println() // Apenas para pular uma linha no final
+}
