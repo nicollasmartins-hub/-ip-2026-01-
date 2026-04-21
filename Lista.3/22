@@ -1,0 +1,17 @@
+package main
+
+import f "fmt"
+
+func main() {
+	s := 0.0
+	num1 := 37.0
+	num2 := 38.0
+
+	for den := 1.0; den <= 37; den++ {
+		s += (num1 * num2) / den
+		num1--
+		num2--
+	}
+
+	f.Printf("S = %.4f\n", s)
+}
