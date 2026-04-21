@@ -1,0 +1,17 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var total uint64 = 0
+	var graosNoQuadro uint64 = 1
+
+	for quadro := 1; quadro <= 64; quadro++ {
+		total += graosNoQuadro
+		f.Printf("Quadro %d: %d grãos\n", quadro, graosNoQuadro)
+		
+		graosNoQuadro *= 2
+	}
+
+	f.Printf("\nTotal de grãos no tabuleiro: %d\n", total)
+}
