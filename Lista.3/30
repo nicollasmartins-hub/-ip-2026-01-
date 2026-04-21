@@ -1,0 +1,16 @@
+package main
+
+import f "fmt"
+
+func main() {
+	const pi = 3.141592653589793
+	
+	f.Printf("%-10s | %-10s\n", "Raio (R)", "Volume")
+	f.Println("---------------------------")
+
+	for r := 0.0; r <= 20.0; r += 0.5 {
+		// r * r * r substitui o math.Pow
+		volume := (4.0 / 3.0) * pi * (r * r * r)
+		f.Printf("%-10.1f | %-10.2f cm³\n", r, volume)
+	}
+}
