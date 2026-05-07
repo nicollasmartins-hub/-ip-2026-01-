@@ -1,0 +1,33 @@
+package main
+
+import f "fmt"
+
+func main() {
+	vetor := make([]int, 10)
+
+	f.Println("Digite 10 números inteiros:")
+	for i := 0; i < 10; i++ {
+		f.Printf("Posição %d: ", i)
+		f.Scan(&vetor[i])
+	}
+
+	f.Println("\nNúmeros primos encontrados:")
+	for i := 0; i < 10; i++ {
+		num := vetor[i]
+		if num < 2 {
+			continue
+		}
+
+		ehPrimo := true
+		for j := 2; j*j <= num; j++ {
+			if num%j == 0 {
+				ehPrimo = false
+				break
+			}
+		}
+
+		if ehPrimo {
+			f.Printf("Número: %d | Posição: %d\n", num, i)
+		}
+	}
+}
