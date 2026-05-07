@@ -1,0 +1,27 @@
+package main
+
+import f "fmt"
+
+func main() {
+	idades := make([]int, 50)
+	contagem := make(map[int]int)
+
+	f.Println("Digite 50 idades:")
+	for i := 0; i < 50; i++ {
+		f.Printf("Idade %d: ", i+1)
+		f.Scan(&idades[i])
+		contagem[idades[i]]++
+	}
+
+	moda := idades[0]
+	maxRepeticoes := 0
+
+	for idade, qtd := range contagem {
+		if qtd > maxRepeticoes {
+			maxRepeticoes = qtd
+			moda = idade
+		}
+	}
+
+	f.Printf("\nA moda das idades é %d, com %d repetições.\n", moda, maxRepeticoes)
+}
