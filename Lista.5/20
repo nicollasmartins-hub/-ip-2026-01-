@@ -1,0 +1,33 @@
+package main
+
+import f "fmt"
+
+func main() {
+	jogadas := make([]int, 20)
+	frequencia := make(map[int]int)
+
+	f.Println("Digite os 20 números sorteados no dado (1 a 6):")
+	for i := 0; i < 20; i++ {
+		var num int
+		f.Printf("Jogada %d: ", i+1)
+		f.Scan(&num)
+
+		if num >= 1 && num <= 6 {
+			jogadas[i] = num
+			frequencia[num]++
+		} else {
+			f.Println("Número inválido! O dado só tem faces de 1 a 6.")
+			i--
+		}
+	}
+
+	f.Println("\nNúmeros sorteados:")
+	for _, v := range jogadas {
+		f.Printf("%d ", v)
+	}
+
+	f.Println("\n\nFrequência de cada face:")
+	for i := 1; i <= 6; i++ {
+		f.Printf("Face %d: %d vezes\n", i, frequencia[i])
+	}
+}
