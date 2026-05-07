@@ -1,0 +1,39 @@
+package main
+
+import "fmt"
+
+func main() {
+	vetor1 := make([]int, 10)
+	vetor2 := make([]int, 5)
+	var somaVetor2 int
+
+	fmt.Println("Digite os 10 números do primeiro vetor:")
+	for i := 0; i < 10; i++ {
+		fmt.Printf("Vetor 1 [%d]: ", i)
+		fmt.Scan(&vetor1[i])
+	}
+
+	fmt.Println("\nDigite os 5 números do segundo vetor:")
+	for i := 0; i < 5; i++ {
+		fmt.Printf("Vetor 2 [%d]: ", i)
+		fmt.Scan(&vetor2[i])
+		somaVetor2 += vetor2[i]
+	}
+
+	var resPares []int
+	var resImpares []int
+
+	for _, num := range vetor1 {
+		if num%2 == 0 {
+			resPares = append(resPares, num+somaVetor2)
+		} else {
+			resImpares = append(resImpares, num+somaVetor2)
+		}
+	}
+
+	fmt.Println("\nPrimeiro vetor resultante (Pares + Soma do segundo):")
+	fmt.Println(resPares)
+
+	fmt.Println("\nSegundo vetor resultante (Ímpares + Soma do segundo):")
+	fmt.Println(resImpares)
+}
