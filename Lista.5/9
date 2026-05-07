@@ -1,0 +1,26 @@
+package main
+
+import f "fmt"
+
+func main() {
+	alturas := make([]float64, 10)
+	var soma float64
+
+	f.Println("Digite a altura de 10 atletas:")
+	for i := 0; i < 10; i++ {
+		f.Printf("Atleta %d: ", i+1)
+		f.Scan(&alturas[i])
+		soma += alturas[i]
+	}
+
+	media := soma / 10
+	f.Printf("\nMédia de altura: %.2f\n", media)
+	f.Println("Alturas acima da média:")
+
+	for _, altura := range alturas {
+		if altura > media {
+			f.Printf("%.2f ", altura)
+		}
+	}
+	f.Println()
+}
