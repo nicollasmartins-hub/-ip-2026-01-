@@ -1,0 +1,25 @@
+package main
+
+import (
+	f "fmt"
+)
+
+func main() {
+	var numeros [10]int
+	encontrou := false
+
+	for i := 0; i < 10; i++ {
+		f.Scan(&numeros[i])
+	}
+
+	for i, numero := range numeros {
+		if numero > 50 {
+			f.Printf("Número: %d | Posição: %d\n", numero, i)
+			encontrou = true
+		}
+	}
+
+	if !encontrou {
+		f.Println("Não existe nenhum número superior a 50.")
+	}
+}
