@@ -1,0 +1,110 @@
+package main
+
+import f "fmt"
+
+func main() {
+	codigos := make([]int, 10)
+	saldos := make([]float64, 10)
+
+	f.Println("Cadastramento das 10 contas:")
+	for i := 0; i < 10; i++ {
+		var codigo int
+		f.Printf("Código da conta %d: ", i+1)
+		f.Scan(&codigo)
+
+		repetido := false
+		for j := 0; j < i; j++ {
+			if codigos[j] == codigo {
+				repetido = true
+				break
+			}
+		}
+
+		if repetido {
+			f.Println("Erro: Já existe uma conta com este código!")
+			i--
+			continue
+		}
+
+		codigos[i] = codigo
+		f.Printf("Saldo da conta %d: ", i+1)
+		f.Scan(&saldos[i])
+	}
+
+	for {
+		f.Println("\n--- MENU ---")
+		f.Println("1. Efetuar depósito")
+		f.Println("2. Efetuar saque")
+		f.Println("3. Consultar ativo bancário")
+		f.Println("4. Finalizar programa")
+		f.Print("Opção: ")
+
+		var opcao int
+		f.Scan(&opcao)
+
+		if opcao == 4 {
+			f.Println("Programa finalizado.")
+			break
+		}
+
+		switch opcao {
+		case 1:
+			var conta int
+			var valor float64
+			f.Print("Código da conta: ")
+			f.Scan(&conta)
+			f.Print("Valor do depósito: ")
+			f.Scan(&valor)
+
+			indice := -1
+			for i := 0; i < 10; i++ {
+				if codigos[i] == conta {
+					indice = i
+					break
+				}
+			}
+
+			if indice == -1 {
+				f.Println("Conta não encontrada")
+			} else {
+				saldos[indice] += valor
+				f.Println("Depósito realizado com sucesso!")
+			}
+
+		case 2:
+			var conta int
+			var valor float64
+			f.Print("Código da conta: ")
+			f.Scan(&conta)
+			f.Print("Valor do saque: ")
+			f.Scan(&valor)
+
+			indice := -1
+			for i := 0; i < 10; i++ {
+				if codigos[i] == conta {
+					indice = i
+					break
+				}
+			}
+
+			if indice == -1 {
+				f.Println("Conta não encontrada")
+			} else if saldos[indice] < valor {
+				f.Println("Saldo insuficiente")
+			} else {
+				saldos[indice] -= valor
+				f.Println("Saque realizado com sucesso!")
+			}
+
+		case 3:
+			var ativo float64
+			for _, s := range saldos {
+				ativo += s
+			}
+			f.Printf("O ativo bancário total é: R$ %.2f\n", ativo)
+
+		default:
+			f.Println("Opção inválida!")
+		}
+	}
+}
