@@ -1,0 +1,32 @@
+package main
+
+import f "fmt"
+
+func main() {
+	vetor := make([]float64, 15)
+
+	f.Println("Digite 15 números inteiros:")
+	for i := 0; i < 15; i++ {
+		var num float64
+		f.Printf("Número %d: ", i+1)
+		f.Scan(&num)
+
+		if num < 0 {
+			vetor[i] = -1
+		} else if num == 0 {
+			vetor[i] = 0
+		} else {
+			z := 1.0
+			for j := 0; j < 10; j++ {
+				z -= (z*z - num) / (2 * z)
+			}
+			vetor[i] = z
+		}
+	}
+
+	f.Println("\nValores armazenados:")
+	for _, valor := range vetor {
+		f.Printf("%.2f ", valor)
+	}
+	f.Println()
+}
