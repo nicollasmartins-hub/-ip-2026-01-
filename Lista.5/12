@@ -1,0 +1,32 @@
+package main
+
+import f "fmt"
+
+func main() {
+	notas := make([]int, 11)
+	totalNotas := 15
+
+	f.Println("Digite as 15 notas (de 0 a 10):")
+	for i := 0; i < totalNotas; i++ {
+		var nota int
+		f.Printf("Nota do aluno %d: ", i+1)
+		f.Scan(&nota)
+
+		if nota >= 0 && nota <= 10 {
+			notas[nota]++
+		} else {
+			f.Println("Nota inválida! Digite valores entre 0 e 10.")
+			i--
+		}
+	}
+
+	f.Println("\nTabela de Frequências:")
+	f.Println("Nota | Freq. Absoluta | Freq. Relativa")
+	f.Println("---------------------------------------")
+
+	for i := 0; i <= 10; i++ {
+		freqAbsoluta := notas[i]
+		freqRelativa := float64(freqAbsoluta) / float64(totalNotas)
+		f.Printf("%2d   | %14d | %14.2f\n", i, freqAbsoluta, freqRelativa)
+	}
+}
