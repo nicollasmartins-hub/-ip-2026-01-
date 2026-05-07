@@ -1,0 +1,20 @@
+package main
+
+import f "fmt"
+
+func main() {
+	vetor := make([]int, 100)
+	numero := 1
+
+	f.Println("Armazenando os 100 primeiros números ímpares...")
+	for i := 0; i < 100; i++ {
+		vetor[i] = numero
+		numero += 2
+	}
+
+	f.Println("Imprimindo elementos do vetor:")
+	for _, valor := range vetor {
+		f.Printf("%d ", valor)
+	}
+	f.Println()
+}
