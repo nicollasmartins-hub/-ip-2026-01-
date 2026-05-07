@@ -1,0 +1,32 @@
+package main
+
+import f "fmt"
+
+func main() {
+	v1 := make([]int, 10)
+	v2 := make([]int, 10)
+	res := make([]int, 20)
+
+	f.Println("Digite os 10 elementos do primeiro vetor:")
+	for i := 0; i < 10; i++ {
+		f.Printf("Vetor 1 [%d]: ", i)
+		f.Scan(&v1[i])
+	}
+
+	f.Println("\nDigite os 10 elementos do segundo vetor:")
+	for i := 0; i < 10; i++ {
+		f.Printf("Vetor 2 [%d]: ", i)
+		f.Scan(&v2[i])
+	}
+
+	for i := 0; i < 10; i++ {
+		res[2*i] = v1[i]
+		res[2*i+1] = v2[i]
+	}
+
+	f.Println("\nVetor resultante da intercalação:")
+	for _, valor := range res {
+		f.Printf("%d ", valor)
+	}
+	f.Println()
+}
