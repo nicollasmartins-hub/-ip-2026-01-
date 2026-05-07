@@ -1,0 +1,28 @@
+package main
+
+import "fmt"
+
+func main() {
+	numeros := make([]int, 10)
+	var pares []int
+	var impares []int
+	somaPares := 0
+
+	fmt.Println("Digite 10 números inteiros:")
+	for i := 0; i < 10; i++ {
+		fmt.Printf("%dº número: ", i+1)
+		fmt.Scan(&numeros[i])
+
+		if numeros[i]%2 == 0 {
+			pares = append(pares, numeros[i])
+			somaPares += numeros[i]
+		} else {
+			impares = append(impares, numeros[i])
+		}
+	}
+
+	fmt.Println("\na) Números pares digitados:", pares)
+	fmt.Println("b) Soma dos números pares:", somaPares)
+	fmt.Println("c) Números ímpares digitados:", impares)
+	fmt.Println("d) Quantidade de números ímpares:", len(impares))
+}
