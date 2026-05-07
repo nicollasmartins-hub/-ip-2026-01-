@@ -1,0 +1,37 @@
+package main
+
+import f "fmt"
+
+func main() {
+	var codigo int
+	vetor := make([]float64, 10)
+
+	f.Println("Digite o código (1-Direta, 2-Inversa, 0-Sair):")
+	f.Scan(&codigo)
+
+	if codigo == 0 {
+		return
+	}
+
+	f.Println("Digite os 10 números reais:")
+	for i := 0; i < 10; i++ {
+		f.Printf("Posição %d: ", i)
+		f.Scan(&vetor[i])
+	}
+
+	switch codigo {
+	case 1:
+		f.Println("\nOrdem direta:")
+		for i := 0; i < 10; i++ {
+			f.Printf("%.2f ", vetor[i])
+		}
+	case 2:
+		f.Println("\nOrdem inversa:")
+		for i := 9; i >= 0; i-- {
+			f.Printf("%.2f ", vetor[i])
+		}
+	default:
+		f.Println("\nCódigo inválido.")
+	}
+	f.Println()
+}
