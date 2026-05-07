@@ -1,0 +1,21 @@
+package main
+
+import f "fmt"
+
+func main() {
+	vetor := make([]float64, 100)
+
+	f.Println("Digite 100 valores numéricos:")
+	for i := 0; i < 100; i++ {
+		f.Printf("Valor %d: ", i)
+		f.Scan(&vetor[i])
+	}
+
+	var soma float64
+	for i := 0; i < 50; i++ {
+		diferenca := vetor[i] - vetor[99-i]
+		soma += diferenca * diferenca * diferenca
+	}
+
+	f.Printf("\nO valor do somatório S é: %.2f\n", soma)
+}
