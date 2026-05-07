@@ -1,0 +1,27 @@
+package main
+
+import f "fmt"
+
+func main() {
+	vetor := make([]int, 10)
+
+	f.Println("Digite 10 números em ordem crescente:")
+	for i := 0; i < 10; i++ {
+		var num int
+		f.Printf("Posição %d: ", i)
+		f.Scan(&num)
+
+		if i > 0 && num < vetor[i-1] {
+			f.Println("Erro: O número deve ser maior ou igual ao anterior.")
+			i--
+			continue
+		}
+		vetor[i] = num
+	}
+
+	f.Println("\nVetor lido:")
+	for _, v := range vetor {
+		f.Printf("%d ", v)
+	}
+	f.Println()
+}
