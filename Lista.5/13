@@ -1,0 +1,41 @@
+package main
+
+import f "fmt"
+
+func main() {
+	type Empregado struct {
+		id    int
+		meses int
+	}
+
+	var empregados []Empregado
+	f.Println("Digite o ID do empregado e meses de trabalho (0 0 para encerrar):")
+
+	for i := 0; i < 100; i++ {
+		var id, meses int
+		f.Scan(&id, &meses)
+
+		if id == 0 && meses == 0 {
+			break
+		}
+		empregados = append(empregados, Empregado{id, meses})
+	}
+
+	for i := 0; i < len(empregados)-1; i++ {
+		for j := 0; j < len(empregados)-i-1; j++ {
+			if empregados[j].meses > empregados[j+1].meses {
+				empregados[j], empregados[j+1] = empregados[j+1], empregados[j]
+			}
+		}
+	}
+
+	f.Println("\nOs três empregados mais recentes:")
+	limite := 3
+	if len(empregados) < 3 {
+		limite = len(empregados)
+	}
+
+	for i := 0; i < limite; i++ {
+		f.Printf("ID: %d | Meses: %d\n", empregados[i].id, empregados[i].meses)
+	}
+}
