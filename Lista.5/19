@@ -1,0 +1,35 @@
+package main
+
+import f "fmt"
+
+func main() {
+	v1 := make([]int, 10)
+	v2 := make([]int, 5)
+
+	f.Println("Digite os 10 números do primeiro vetor:")
+	for i := 0; i < 10; i++ {
+		f.Printf("Vetor 1 [%d]: ", i)
+		f.Scan(&v1[i])
+	}
+
+	f.Println("\nDigite os 5 números do segundo vetor (divisores):")
+	for i := 0; i < 5; i++ {
+		f.Printf("Vetor 2 [%d]: ", i)
+		f.Scan(&v2[i])
+	}
+
+	f.Println("\nSaída:")
+	for _, num := range v1 {
+		f.Printf("Número %d:\n", num)
+		encontrou := false
+		for j, div := range v2 {
+			if div != 0 && num%div == 0 {
+				f.Printf("  Divisível por %d na posição %d\n", div, j)
+				encontrou = true
+			}
+		}
+		if !encontrou {
+			f.Println("  Nenhum divisor encontrado no segundo vetor")
+		}
+	}
+}
