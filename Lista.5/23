@@ -1,0 +1,85 @@
+package main
+
+import f "fmt"
+
+func main() {
+	janela := make([]int, 24)
+	corredor := make([]int, 24)
+
+	for {
+		f.Println("\n--- Venda de Passagens ---")
+		f.Println("1. Comprar na Janela")
+		f.Println("2. Comprar no Corredor")
+		f.Println("3. Finalizar")
+		f.Print("Escolha uma opção: ")
+
+		var opcao int
+		f.Scan(&opcao)
+
+		if opcao == 3 {
+			break
+		}
+
+		cheioJanela := true
+		cheioCorredor := true
+
+		for i := 0; i < 24; i++ {
+			if janela[i] == 0 {
+				cheioJanela = false
+			}
+			if corredor[i] == 0 {
+				cheioCorredor = false
+			}
+		}
+
+		if cheioJanela && cheioCorredor {
+			f.Println("Ônibus completamente cheio!")
+			continue
+		}
+
+		switch opcao {
+		case 1:
+			if cheioJanela {
+				f.Println("Não existem poltronas livres na janela!")
+			} else {
+				f.Println("Poltronas disponíveis na Janela:")
+				for i := 0; i < 24; i++ {
+					if janela[i] == 0 {
+						f.Printf("[%d] ", i+1)
+					}
+				}
+				f.Print("\nEscolha o número da poltrona: ")
+				var p int
+				f.Scan(&p)
+				if p < 1 || p > 24 || janela[p-1] == 1 {
+					f.Println("Poltrona inválida ou já ocupada!")
+				} else {
+					janela[p-1] = 1
+					f.Println("Venda efetuada com sucesso!")
+				}
+			}
+		case 2:
+			if cheioCorredor {
+				f.Println("Não existem poltronas livres no corredor!")
+			} else {
+				f.Println("Poltronas disponíveis no Corredor:")
+				for i := 0; i < 24; i++ {
+					if corredor[i] == 0 {
+						f.Printf("[%d] ", i+1)
+					}
+				}
+				f.Print("\nEscolha o número da poltrona: ")
+				var p int
+				f.Scan(&p)
+				if p < 1 || p > 24 || corredor[p-1] == 1 {
+					f.Println("Poltrona inválida ou já ocupada!")
+				} else {
+					corredor[p-1] = 1
+					f.Println("Venda efetuada com sucesso!")
+				}
+			}
+		default:
+			f.Println("Opção inválida!")
+		}
+	}
+}
