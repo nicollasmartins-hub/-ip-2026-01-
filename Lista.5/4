@@ -1,0 +1,22 @@
+package main
+
+import f "fmt"
+
+func main() {
+	vetorA := make([]int, 10)
+	contagem := make(map[int]int)
+
+	f.Println("Digite 10 números:")
+	for i := 0; i < 10; i++ {
+		f.Printf("Posição %d: ", i)
+		f.Scan(&vetorA[i])
+		contagem[vetorA[i]]++
+	}
+
+	f.Println("\nResultados:")
+	for numero, qtd := range contagem {
+		if qtd > 1 {
+			f.Printf("Número %d: %d repetições\n", numero, qtd)
+		}
+	}
+}
